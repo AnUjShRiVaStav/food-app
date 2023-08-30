@@ -1,0 +1,51 @@
+<div class="menu-list">
+  <!-- <select [(ngModel)]="selectedOption">
+    <option value="breakfast">Breakfast</option>
+    <option value="lunch">Lunch</option>
+    <option value="shakes">Shakes</option>
+  </select> -->
+  
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <mat-select [(ngModel)]="selectedOption">
+      <mat-option value="breakfast">Breakfast</mat-option>
+      <mat-option value="lunch">Lunch</mat-option>
+      <mat-option value="shakes">Shakes</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="menu-img">
+    <img
+     style="height: 150px;"
+      src="https://www.merchantsmarket.com/wp-content/uploads/2018/01/menu.png"
+      alt="menu"
+    />
+  </div>
+
+  <div class="container-menu">
+    <div *ngFor="let item of menuList; let i = index">
+      <div class="card" *ngIf="selectedOption === item.category">
+        <img src="{{ item.img }}" alt="menu" class="img-food" />
+
+        <div class="container">
+          <p>
+            {{ item.category }}
+          </p>
+
+          <p>
+            {{ item.title }}
+          </p>
+          <p>
+            {{ item.desc }}
+          </p>
+          <p>
+            <span>Price</span>
+            <span>{{ item.price }}$</span>
+          </p>
+          <button class="add-button" (click)="addItemToCart(item)">
+            ADD TO CARD
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

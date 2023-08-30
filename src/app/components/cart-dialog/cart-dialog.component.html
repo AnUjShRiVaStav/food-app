@@ -1,0 +1,21 @@
+<div style="margin: 10px; text-align: center;">View Cart</div>
+<div style="margin: 10px">
+  <div *ngFor="let cartItem of cartItems">
+    <div class="items">
+      <p style="width: 60%;">{{ cartItem.item.title }} - Rs {{ cartItem.item.price }}</p>
+      <div>
+        <button (click)="updateQuantity(cartItem, cartItem.quantity - 1)">
+          -
+        </button>
+        {{ cartItem.quantity }}
+        <button (click)="updateQuantity(cartItem, cartItem.quantity + 1)">
+          +
+        </button>
+      </div>
+      <button (click)="removeItem(cartItem.item)">Remove</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="cartItems?.length" style="position: absolute; bottom: 15px; display: flex; justify-content: center;width: 100%;">
+    <p>Amount To Pay {{ calculateOverallTotal() }}</p>
+</div>

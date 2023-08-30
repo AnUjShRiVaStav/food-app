@@ -1,0 +1,23 @@
+<!-- <div class="restaurant-container">
+    <mat-grid-list cols="3" rowHeight="2:1">
+      <mat-grid-tile *ngFor="let item of restaurants; let i = index" class="card">
+        <img src="{{ item.image }}" alt="{{ item.name }}" class="restaurant-image" (click)="handleProductInfo(item.id)">
+        <div class="restaurant-details">
+          <p>{{ item.name }}</p>
+          <p>{{ item.location }}</p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+   -->
+
+   <div class="restaurant-container">
+
+   <div class="card" *ngFor="let item of restaurants; let i = index" (click)="handleProductInfo(item.id)">
+    <img src="{{ item.image }}" alt="{{ item.name }}" class="restaurant-image" (click)="handleProductInfo(item.id)" style="width:100%">
+    <div class="container">
+      <h4><b>{{item.name}}</b></h4> 
+      <p>{{item.location}}</p> 
+    </div>
+  </div>
+  </div>
